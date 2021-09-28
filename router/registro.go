@@ -22,6 +22,11 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if len(t.Password) == 0 {
+		http.Error(w, "El campo password es requirido", 400)
+		return
+	}
+
 	if len(t.Email) < 6 {
 		http.Error(w, "La contraseña debe tener almenos 6 caracteres", 400)
 		return
@@ -30,6 +35,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 	_, encontrado, _ := bd.ChequeYaExisteUsuario(t.Email)
 	if encontrado == true {
 		http.Error(w, "Ya existe un usuario registrado con ese email", 400)
+		return
 	}
 
 	_, status, err := bd.InsertoRegistro(t)
