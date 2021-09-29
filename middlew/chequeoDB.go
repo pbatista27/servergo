@@ -8,7 +8,7 @@ import (
 
 func ChequeoBD(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if bd.ChequeoConnection() == 0 {
+		if bd.ChequeoConnection() == false {
 			http.Error(w, "conexion perdida de base datos", 500)
 			return
 		}

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	if bd.ChequeoConnection() == 0 {
+	if bd.ChequeoConnection() == false {
 		log.Fatal("sin conexion")
 		return
 	}
