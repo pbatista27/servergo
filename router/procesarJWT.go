@@ -29,7 +29,9 @@ func ProcesarJWT(tk string) (*model.Claim, bool, string, error) {
 	})
 
 	if err == nil {
+
 		_, encontrado, _ := bd.ChequeYaExisteUsuario(claims.Email)
+
 		if encontrado == true {
 			Email = claims.Email
 			IDUsuario = claims.ID.Hex()
@@ -42,7 +44,6 @@ func ProcesarJWT(tk string) (*model.Claim, bool, string, error) {
 		return claims, false, string(""), errors.New("token invalido")
 
 	}
-
 	return claims, false, string(""), err
 
 }

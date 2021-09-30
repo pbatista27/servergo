@@ -7,7 +7,6 @@ import (
 
 type Claim struct {
 	Email string             `json:"email"`
-	Name  string             `json:"name"`
-	ID    primitive.ObjectID `bson:"_id" json:"_id,omitempty"`
+	ID    primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	jwt.StandardClaims
 }

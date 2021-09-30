@@ -14,7 +14,6 @@ func ChequeYaExisteUsuario(email string) (model.Usuario, bool, string) {
 
 	db := MongoCN.Database("go")
 	col := db.Collection("usuarios")
-
 	condicion := bson.M{"email": email}
 
 	var resultado model.Usuario
