@@ -22,6 +22,9 @@ func ModificarPerfil(u model.Usuario, ID string) (bool, error) {
 
 	registro["nombre"] = u.Nombre
 	registro["apellidos"] = u.Apellidos
+	registro["biografia"] = u.Biografia
+	registro["avatar"] = u.Avatar
+	registro["banner"] = u.Banner
 
 	updateStr := bson.M{
 		"$set": registro,
